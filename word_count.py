@@ -47,7 +47,7 @@ def mapper(sequence):
         for word in words:
             word=word.replace(",","")
             word=word.replace(".","")
-            word = word.lower()
+            word=word.lower()
             new_sequence.append((word,1))
     return new_sequence
 
@@ -132,14 +132,12 @@ def job(input_directory, output_directory):
     sequence = shuffle_and_sort(sequence)
     sequence = reducer(sequence)
     create_output_directory(output_directory)
-    save_output(output_directory,sequence)
+    save_output(output_directory)
     create_marker(output_directory)
-    job(input_directory="input",
-        output_directory="output",
-    )
+    
 
 if __name__ == "__main__":
     job(
         "input",
        "output",
-    )
+        )
